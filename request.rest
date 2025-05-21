@@ -1,0 +1,37 @@
+GET http://localhost:5000/users
+
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john Doe @example.com",
+    "password": "password123"
+}
+
+###
+GET http://localhost:5000/users/1
+
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "informatika",
+    "email": "if@gmail.com",
+    "gender": "Male"
+}
+
+###
+GET http://localhost:5000/users/1
+
+###
+POST http://localhost:5000/users/1
+Content-Type: application/json
+
+{
+    "name": "informatika",
+    "email": "if@gmail.com",
+    "gender": "Male" 
+}
