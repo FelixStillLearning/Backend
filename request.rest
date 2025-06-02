@@ -24,14 +24,36 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/users/1
+GET http://localhost:5000/users/2
 
 ###
-POST http://localhost:5000/users/1
+PATCH   http://localhost:5000/users/2
 Content-Type: application/json
 
 {
-    "name": "informatika",
+    "name": "felix",
     "email": "if@gmail.com",
     "gender": "Male" 
 }
+
+###
+DELETE http://localhost:5000/users/2
+Content-Type: application/json
+
+{
+    "name": "felix",
+    "email": "if@gmail.com",
+    "gender": "Male"
+}
+###
+GET http://localhost:5000/users/3
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "gender": "Female"
+}
+###
