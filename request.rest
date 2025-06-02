@@ -57,3 +57,57 @@ Content-Type: application/json
     "gender": "Female"
 }
 ###
+
+GET http://localhost:5000/products
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Laptop gimang",
+    "price": 999.99,
+    "stock": 10
+}
+
+###
+GET http://localhost:5000/products/1
+###
+POST http://localhost:5000/products/1
+Content-Type: application/json
+
+{
+    "name": "Gaming Laptop",
+    "price": 15000000.00,
+    "stock": 5
+}
+###
+DELETE http://localhost:5000/products/1
+Content-Type: application/json
+
+{
+    "name": "Gaming Laptop",
+    "price": 15000000.00,
+    "stock": 5
+}
+###
+GET http://localhost:5000/products/2
+###
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Smartphone",
+    "price": 4000000.00,
+    "stock": 20
+}
+###
+
+PATCH http://localhost:5000/products/2
+Content-Type: application/json
+
+{
+    "name": "Smartphone Pro",
+    "price": 5000000.00,
+    "stock": 15
+}
+###
