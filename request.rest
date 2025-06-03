@@ -1,53 +1,28 @@
+// ========================================
+// API TESTS FOR ALL TABLES
+// ========================================
+
+// ========================================
+// 1. USERS API TESTS
+// ========================================
+
+### Get all users
 GET http://localhost:5000/users
 
-###
+### Get user by ID
+GET http://localhost:5000/users/1
+
+### Create new user
 POST http://localhost:5000/users
 Content-Type: application/json
 
 {
     "name": "John Doe",
-    "email": "john Doe @example.com",
-    "password": "password123"
-}
-
-###
-GET http://localhost:5000/users/1
-
-###
-POST http://localhost:5000/users
-Content-Type: application/json
-
-{
-    "name": "informatika",
-    "email": "if@gmail.com",
+    "email": "john.doe@example.com",
     "gender": "Male"
 }
 
-###
-GET http://localhost:5000/users/2
-
-###
-PATCH   http://localhost:5000/users/2
-Content-Type: application/json
-
-{
-    "name": "felix",
-    "email": "if@gmail.com",
-    "gender": "Male" 
-}
-
-###
-DELETE http://localhost:5000/users/2
-Content-Type: application/json
-
-{
-    "name": "felix",
-    "email": "if@gmail.com",
-    "gender": "Male"
-}
-###
-GET http://localhost:5000/users/3
-###
+### Create another user
 POST http://localhost:5000/users
 Content-Type: application/json
 
@@ -56,58 +31,344 @@ Content-Type: application/json
     "email": "jane.smith@example.com",
     "gender": "Female"
 }
-###
 
+### Create third user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "gender": "Female"
+}
+
+### Update user
+PATCH http://localhost:5000/users/1
+Content-Type: application/json
+
+{
+    "name": "John Doe Updated",
+    "email": "john.doe.updated@example.com",
+    "gender": "Male"
+}
+
+### Delete user (uncomment to test)
+# DELETE http://localhost:5000/users/3
+
+// ========================================
+// 2. CATEGORIES API TESTS
+// ========================================
+
+### Get all categories
+GET http://localhost:5000/categories
+
+### Get category by ID
+GET http://localhost:5000/categories/1
+
+### Create new category
+POST http://localhost:5000/categories
+Content-Type: application/json
+
+{
+    "name": "Electronics",
+    "description": "Electronic devices and gadgets",
+    "status": true
+}
+
+### Create another category
+POST http://localhost:5000/categories
+Content-Type: application/json
+
+{
+    "name": "Books",
+    "description": "Books and educational materials",
+    "status": true
+}
+
+### Create third category
+POST http://localhost:5000/categories
+Content-Type: application/json
+
+{
+    "name": "Clothing",
+    "description": "Fashion and apparel",
+    "status": false
+}
+
+### Update category
+PATCH http://localhost:5000/categories/1
+Content-Type: application/json
+
+{
+    "name": "Electronics Updated",
+    "description": "Electronic devices, gadgets and accessories",
+    "status": true
+}
+
+### Delete category (uncomment to test)
+# DELETE http://localhost:5000/categories/3
+
+// ========================================
+// 3. PRODUCTS API TESTS
+// ========================================
+
+### Get all products
 GET http://localhost:5000/products
-###
-POST http://localhost:5000/products
-Content-Type: application/json
 
-{
-    "name": "Laptop gimang",
-    "price": 999.99,
-    "stock": 10
-}
-
-###
+### Get product by ID
 GET http://localhost:5000/products/1
-###
-POST http://localhost:5000/products/1
-Content-Type: application/json
 
-{
-    "name": "Gaming Laptop",
-    "price": 15000000.00,
-    "stock": 5
-}
-###
-DELETE http://localhost:5000/products/1
-Content-Type: application/json
-
-{
-    "name": "Gaming Laptop",
-    "price": 15000000.00,
-    "stock": 5
-}
-###
-GET http://localhost:5000/products/2
-###
+### Create new product
 POST http://localhost:5000/products
 Content-Type: application/json
 
 {
-    "name": "Smartphone",
-    "price": 4000000.00,
-    "stock": 20
+    "name": "Gaming Laptop",
+    "price": 15000000.00,
+    "stock": 5,
+    "categoryId": 1,
+    "description": "High-performance gaming laptop with RTX graphics"
 }
-###
 
-PATCH http://localhost:5000/products/2
+### Create another product
+POST http://localhost:5000/products
 Content-Type: application/json
 
 {
     "name": "Smartphone Pro",
-    "price": 5000000.00,
-    "stock": 15
+    "price": 8000000.00,
+    "stock": 20,
+    "categoryId": 1,
+    "description": "Latest smartphone with advanced camera system"
 }
-###
+
+### Create third product
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Programming Book",
+    "price": 250000.00,
+    "stock": 50,
+    "categoryId": 2,
+    "description": "Complete guide to modern web development"
+}
+
+### Update product
+PATCH http://localhost:5000/products/1
+Content-Type: application/json
+
+{
+    "name": "Gaming Laptop Pro",
+    "price": 18000000.00,
+    "stock": 3,
+    "categoryId": 1,
+    "description": "Ultimate gaming laptop with latest RTX 4080 graphics"
+}
+
+### Delete product (uncomment to test)
+# DELETE http://localhost:5000/products/3
+
+// ========================================
+// 4. EXPEDITIONS API TESTS
+// ========================================
+
+### Get all expeditions
+GET http://localhost:5000/expeditions
+
+### Get active expeditions only
+GET http://localhost:5000/expeditions/active
+
+### Get expedition by ID
+GET http://localhost:5000/expeditions/1
+
+### Create new expedition
+POST http://localhost:5000/expeditions
+Content-Type: application/json
+
+{
+    "name": "JNE Express",
+    "code": "jne",
+    "logo": "https://example.com/logos/jne.png",
+    "baseCost": 15000.00,
+    "status": true
+}
+
+### Create another expedition
+POST http://localhost:5000/expeditions
+Content-Type: application/json
+
+{
+    "name": "J&T Express",
+    "code": "jnt",
+    "logo": "https://example.com/logos/jnt.png",
+    "baseCost": 12000.00,
+    "status": true
+}
+
+### Create third expedition
+POST http://localhost:5000/expeditions
+Content-Type: application/json
+
+{
+    "name": "SiCepat",
+    "code": "sicepat",
+    "logo": "https://example.com/logos/sicepat.png",
+    "baseCost": 10000.00,
+    "status": false
+}
+
+### Update expedition
+PATCH http://localhost:5000/expeditions/1
+Content-Type: application/json
+
+{
+    "name": "JNE Express Updated",
+    "code": "jne",
+    "logo": "https://example.com/logos/jne-new.png",
+    "baseCost": 16000.00,
+    "status": true
+}
+
+### Delete expedition (uncomment to test)
+# DELETE http://localhost:5000/expeditions/3
+
+// ========================================
+// 5. ORDERS API TESTS
+// ========================================
+
+### Get all orders
+GET http://localhost:5000/orders
+
+### Get order by ID
+GET http://localhost:5000/orders/1
+
+### Get orders by user ID
+GET http://localhost:5000/orders/user/1
+
+### Create new order
+POST http://localhost:5000/orders
+Content-Type: application/json
+
+{
+    "orderNumber": "ORD-001-2024",
+    "userId": 1,
+    "expeditionId": 1,
+    "totalAmount": 15250000.00,
+    "shippingCost": 25000.00,
+    "status": "pending",
+    "trackingNumber": null,
+    "estimatedDelivery": "2024-06-10T00:00:00Z",
+    "shippingAddress": "Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta 10270"
+}
+
+### Create another order
+POST http://localhost:5000/orders
+Content-Type: application/json
+
+{
+    "orderNumber": "ORD-002-2024",
+    "userId": 2,
+    "expeditionId": 2,
+    "totalAmount": 8050000.00,
+    "shippingCost": 20000.00,
+    "status": "confirmed",
+    "trackingNumber": "JNT123456789",
+    "estimatedDelivery": "2024-06-08T00:00:00Z",
+    "shippingAddress": "Jl. Gatot Subroto No. 456, Bandung, Jawa Barat 40123"
+}
+
+### Create third order
+POST http://localhost:5000/orders
+Content-Type: application/json
+
+{
+    "orderNumber": "ORD-003-2024",
+    "userId": 1,
+    "expeditionId": 1,
+    "totalAmount": 500000.00,
+    "shippingCost": 15000.00,
+    "status": "shipped",
+    "trackingNumber": "JNE987654321",
+    "estimatedDelivery": "2024-06-07T00:00:00Z",
+    "shippingAddress": "Jl. Diponegoro No. 789, Surabaya, Jawa Timur 60231"
+}
+
+### Update full order
+PATCH http://localhost:5000/orders/1
+Content-Type: application/json
+
+{
+    "orderNumber": "ORD-001-2024-UPDATED",
+    "userId": 1,
+    "expeditionId": 1,
+    "totalAmount": 15500000.00,
+    "shippingCost": 30000.00,
+    "status": "confirmed",
+    "trackingNumber": "JNE123ABC789",
+    "estimatedDelivery": "2024-06-09T00:00:00Z",
+    "shippingAddress": "Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta 10270 (Updated)"
+}
+
+### Update order status only
+PATCH http://localhost:5000/orders/2/status
+Content-Type: application/json
+
+{
+    "status": "delivered",
+    "trackingNumber": "JNT123456789-DELIVERED"
+}
+
+### Delete order (uncomment to test)
+# DELETE http://localhost:5000/orders/3
+
+// ========================================
+// 6. ADDITIONAL TEST SCENARIOS
+// ========================================
+
+### Test error handling - Get non-existent user
+GET http://localhost:5000/users/999
+
+### Test error handling - Get non-existent product
+GET http://localhost:5000/products/999
+
+### Test error handling - Get non-existent category
+GET http://localhost:5000/categories/999
+
+### Test error handling - Get non-existent expedition
+GET http://localhost:5000/expeditions/999
+
+### Test error handling - Get non-existent order
+GET http://localhost:5000/orders/999
+
+### Test validation - Create user with invalid data
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "invalid-email",
+    "gender": "InvalidGender"
+}
+
+### Test validation - Create category with duplicate name
+POST http://localhost:5000/categories
+Content-Type: application/json
+
+{
+    "name": "Electronics",
+    "description": "Duplicate category name test",
+    "status": true
+}
+
+### Test validation - Create expedition with duplicate code
+POST http://localhost:5000/expeditions
+Content-Type: application/json
+
+{
+    "name": "Another JNE",
+    "code": "jne",
+    "logo": "https://example.com/logos/duplicate.png",
+    "baseCost": 20000.00,
+    "status": true
+}
